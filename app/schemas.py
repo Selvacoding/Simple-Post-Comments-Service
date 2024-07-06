@@ -14,19 +14,6 @@ class Comment(CommentBase):
     class Config:
         orm_mode = True
 
-class ReplyBase(BaseModel):
-    content: str
-
-class ReplyCreate(ReplyBase):
-    pass
-
-class Reply(ReplyBase):
-    id: int
-    comment_id: int
-
-    class Config:
-        orm_mode = True
-
 class PostBase(BaseModel):
     title: str
     content: str

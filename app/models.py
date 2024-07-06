@@ -15,11 +15,3 @@ class Comment(Base):
     post_id = Column(Integer, ForeignKey('posts.id'))
     content = Column(String, index=True)
     post = relationship("Post", back_populates="comments")
-    replies = relationship("Reply", back_populates="comment")
-
-class Reply(Base):
-    __tablename__ = 'replies'
-    id = Column(Integer, primary_key=True, index=True)
-    comment_id = Column(Integer, ForeignKey('comments.id'))
-    content = Column(String, index=True)
-    comment = relationship("Comment", back_populates="replies")
